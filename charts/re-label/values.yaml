@@ -1,5 +1,0 @@
-replicas: 3
-image:
-  repository: 235171097798.dkr.ecr.eu-west-2.amazonaws.com/core-api
-  tag: <tag>
-  pullPolicy: IfNotPresent

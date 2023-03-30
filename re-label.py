@@ -10,13 +10,13 @@ logging.basicConfig(level=os.environ.get('LOG_LEVEL', 'INFO').upper())
 
 ###############################################################################
 if __name__ == '__main__':
-    interval = int(os.getenv('SOURCE_LABEL_PREFIX', 60))
+    interval = int(os.getenv('INTERVAL_SECONDS', 60))
     source_label_prefix = os.getenv('SOURCE_LABEL_PREFIX', 'node-role.kubernetes/')
     destination_label_prefix = os.getenv('DESTINATION_LABEL_PREFIX', 'node-role.kubernetes.io/')
 
     config.load_kube_config()
     logger = logging.getLogger('relabel')
-    
+
     while True:
         try:
             api_instance = client.CoreV1Api()
