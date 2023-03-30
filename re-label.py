@@ -14,7 +14,7 @@ if __name__ == '__main__':
     source_label_prefix = os.getenv('SOURCE_LABEL_PREFIX', 'node-role.kubernetes/')
     destination_label_prefix = os.getenv('DESTINATION_LABEL_PREFIX', 'node-role.kubernetes.io/')
 
-    config.load_kube_config()
+    config.load_incluster_config()
     logger = logging.getLogger('relabel')
 
     while True:
