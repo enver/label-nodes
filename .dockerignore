@@ -1,0 +1,4 @@
+.dockerignore
+.py3
+Dockerfile
+helm
