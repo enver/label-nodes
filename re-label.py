@@ -16,6 +16,7 @@ if __name__ == '__main__':
 
     config.load_incluster_config()
     logger = logging.getLogger('relabel')
+    logger.info('Running')
 
     while True:
         try:
@@ -39,5 +40,5 @@ if __name__ == '__main__':
                     logger.info(f'Patching node { node.metadata.name } with {body.get("metadata").get("labels")}')
                     api_instance.patch_node(node.metadata.name, body)
         except Exception as ex:
-            print(ex)
+            logger.error(ex)
         time.sleep(interval)
