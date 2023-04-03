@@ -6,7 +6,8 @@ import logging
 from kubernetes import config
 from kubernetes import client
 
-logging.basicConfig(level=os.environ.get('LOG_LEVEL', 'INFO').upper())
+logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
+                    level=os.environ.get('LOG_LEVEL', 'INFO').upper())
 
 ###############################################################################
 if __name__ == '__main__':
@@ -15,7 +16,7 @@ if __name__ == '__main__':
     destination_label_prefix = os.getenv('DESTINATION_LABEL_PREFIX', 'node-role.kubernetes.io/')
 
     config.load_incluster_config()
-    logger = logging.getLogger('relabel')
+    logger = logging.getLogger('label-nodes')
     logger.info('Running')
 
     while True:
